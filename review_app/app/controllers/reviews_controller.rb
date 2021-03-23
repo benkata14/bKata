@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-    if @review.update(r_params)
+    if @review.update(review_params)
       redirect_to @review
     else
     render 'edit'
@@ -35,6 +35,13 @@ class ReviewsController < ApplicationController
     @review.destroy
     redirect_to reviews_path
   end
+  def search
+    @reviews = if params[:term]
+      Review.where('product_id LIKE ?', "%#{params[:term]}")
+     else
+      Review.all
+    end
+  end 
   private
     def review_params
         params.require(:review).permit(:author, :product_id, :rating, :content, :date)

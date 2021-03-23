@@ -1,0 +1,38 @@
+<div class="container">
+<%= form_tag search_reviews_path, method: :get do %>
+    <%= text_field_tag :term, nil, placeholder: 'Search',
+class:'form-control' %>
+<%= submit_tag "Search", class:'btn btn-default' %>
+<% end %>
+    
+<h2> All Reviews </h2>
+<table border="1" class="table">
+
+<tr>
+    <th> Product </th>
+    <th> Author </th>
+    <th> Rating </th>
+    <th> Date </th>
+    <th> Full Review </th>
+    <th> Edit</th>
+    <th> Delete </th>
+</tr>
+
+<% @reviews.each do |review| %>
+
+<tr>
+<td> <%= review.product_id %> </td>
+<td> <%= review.author %> </td>
+<td> <%= review.rating %> </td>
+<td> <%= review.date %> </td>
+<td> <%= link_to 'See Review', review_path(review) %> </td>
+<td> <%= link_to 'Edit', edit_review_path(review) %> </td>
+<td> <%= link_to 'Delete', review_path(review),
+method: :Delete,
+data: {confirm: "Are you sure you want to delete this Review"}
+%> </td>
+
+</tr>
+<% end %>
+</table>
+</div>

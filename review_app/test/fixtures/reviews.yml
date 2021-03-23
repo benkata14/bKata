@@ -2,14 +2,14 @@
 
 one:
   author: MyString
-  product_id: 1
-  rating: 1
+  product_id: MyString
+  rating: MyString
   content: MyText
-  date: 2021-03-22
+  date: 2021-03-23
 
 two:
   author: MyString
-  product_id: 1
-  rating: 1
+  product_id: MyString
+  rating: MyString
   content: MyText
-  date: 2021-03-22
+  date: 2021-03-23
