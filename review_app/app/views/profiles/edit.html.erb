@@ -1,0 +1,33 @@
+<div class="container">
+<h2>Edit Profile </h2>
+<%= form_for current_user do |f| %>
+
+<%= f.text_field :fname, placeholder: 'Enter your Full Name', class:
+'form-control' %>
+    
+<%= f.email_field :email, placeholder: 'Enter your Email', class:
+'form-control' %>
+    
+<%= f.date_field :dob, placeholder: 'Enter your Date of Birth', class:
+'form-control' %>
+    
+<%= f.text_field :address, placeholder: 'Enter your Address', class:
+'form-control' %>
+    
+<%= f.text_field :city, placeholder: 'Enter your City', class:
+'form-control' %>
+    
+<%= f.text_field :country, placeholder: 'Enter your Country', class:
+'form-control' %>
+    
+<%= f.password_field :password, placeholder: 'Change Password',
+class: 'form-control' %>
+    
+<%= f.password_field :password_confirmation, placeholder: 'Confirm
+your Password', class: 'form-control' %>
+    
+</div>
+<%= f.submit "Submit", class:'btn btn-primary' %>
+    <%=link_to "Cancel", profiles_path, class:'btn btn-default' %>
+<% end %>
+</div>

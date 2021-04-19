@@ -28,9 +28,7 @@
         <% if current_user %>
         <a class="p-2 text-dark" href="#">
         <%= link_to 'Log out', session_path('active'), method: :delete %> </a>
-        <a class="p-2 text-dark" href="#">
-        <%= current_user.fname %>
-        </a>
+        <a class="p-2 text-dark" href="#"> <%= link_to current_user.fname, profiles_path(session) %> </a>
         <% else %>
         <a class="p-2 text-dark" href="#">
         <%= link_to 'Log in', new_session_path, class: "active_nav_link" %>

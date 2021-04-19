@@ -4,6 +4,10 @@ class ProfilesController < ApplicationController
         @profile=Profile.new
 
     end
+    def index
+        @profile = current_user
+    
+    end
     def create
         @profile=Profile.new(profile_params)
             if @profile.save
@@ -12,6 +16,16 @@ class ProfilesController < ApplicationController
             else
                     render 'new'
             end
+    end
+    def update
+        @profile = Profile.find(params[:id])
+        if @profile.update(profile_params)
+          redirect_to static_pages_home_path
+        else
+        render 'edit'
+        end
+      
+    
     end
     private
         def profile_params

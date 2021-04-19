@@ -1,3 +1,13 @@
 <div class="container">
-<h2> Registered Users </h2>
+<h2> Your Profile </h2>
+</div>
+
+<p>Full Name: <%= @profile.fname %> </p>
+<p>Date Of Birth: <%= @profile.dob %> </p>
+<p>Adress: <%= @profile.address %> </p>
+<p>City: <%= @profile.city %> </p>
+<p>Country: <%= @profile.country %> </p>
+<%= link_to 'Edit', edit_profile_path(@profile) %> </td>
+
+
 </div>

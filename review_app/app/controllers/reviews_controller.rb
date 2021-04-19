@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authorize, :only => [ :create]
   def index
     @reviews = Review.all
     @products = Product.all
@@ -13,8 +14,14 @@ class ReviewsController < ApplicationController
 
   def create
     @review=Review.new(review_params)
-    @review.save
-    redirect_to @review
+      if @review.save
+      redirect_to reviews_path, notice:
+      "You have successfully created a Review"
+
+      else
+        redirect_to reviews_path, alert:
+        "You will need to sign in to create a review"
+      end
   end
 
   def update
